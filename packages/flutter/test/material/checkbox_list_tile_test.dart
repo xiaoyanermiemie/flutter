@@ -148,7 +148,7 @@ void main() {
 
     final Rect tallerWidget = checkboxRect.height > titleRect.height ? checkboxRect : titleRect;
 
-    // Check the offsets of CheckBox and title after padding is applied.
+    // Check the offsets of Checkbox and title after padding is applied.
     expect(paddingRect.right, checkboxRect.right + 4);
     expect(paddingRect.left, titleRect.left - 10);
 
@@ -269,7 +269,7 @@ void main() {
       ),
     );
 
-    expect(find.byType(Material), paints..path(color: tileColor));
+    expect(find.byType(Material), paints..rect(color: tileColor));
   });
 
   testWidgets('CheckboxListTile respects selectedTileColor', (WidgetTester tester) async {
@@ -289,7 +289,7 @@ void main() {
       ),
     );
 
-    expect(find.byType(Material), paints..path(color: selectedTileColor));
+    expect(find.byType(Material), paints..rect(color: selectedTileColor));
   });
 
   testWidgets('CheckboxListTile selected item text Color', (WidgetTester tester) async {

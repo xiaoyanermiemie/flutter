@@ -170,12 +170,12 @@ void main() {
 
       await tester.pumpFrames(target, const Duration(milliseconds: 55));
 
-      expect(logPaints, <int>[0, 17000, 34000, 50000]);
+      expect(logPaints, <int>[0, 16683, 33366, 50049]);
       logPaints.clear();
 
       await tester.pumpFrames(target, const Duration(milliseconds: 30), const Duration(milliseconds: 10));
 
-      expect(logPaints, <int>[60000, 70000, 80000]);
+      expect(logPaints, <int>[60049, 70049, 80049]);
     });
   });
 
@@ -629,6 +629,23 @@ void main() {
       }, zoneValues: <dynamic, dynamic>{
         key: 'abczed',
       });
+    });
+
+    testWidgets('control test (return value)', (WidgetTester tester) async {
+      final String? result = await tester.binding.runAsync<String>(() async => 'Judy Turner');
+      expect(result, 'Judy Turner');
+    });
+
+    testWidgets('async throw', (WidgetTester tester) async {
+      final String? result = await tester.binding.runAsync<Never>(() async => throw Exception('Lois Dilettente'));
+      expect(result, isNull);
+      expect(tester.takeException(), isNotNull);
+    });
+
+    testWidgets('sync throw', (WidgetTester tester) async {
+      final String? result = await tester.binding.runAsync<Never>(() => throw Exception('Butch Barton'));
+      expect(result, isNull);
+      expect(tester.takeException(), isNotNull);
     });
   });
 

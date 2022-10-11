@@ -21,7 +21,7 @@ import 'transitions.dart';
 //   const MyWidget({super.key, this.targetColor = Colors.black}) : super(duration: const Duration(seconds: 1));
 //   final Color targetColor;
 //   @override
-//   MyWidgetState createState() => MyWidgetState();
+//   ImplicitlyAnimatedWidgetState<MyWidget> createState() => throw UnimplementedError(); // ignore: no_logic_in_create_state
 // }
 // void setState(VoidCallback fn) { }
 
@@ -1559,7 +1559,7 @@ class _AnimatedRotationState extends ImplicitlyAnimatedWidgetState<AnimatedRotat
 ///
 /// {@tool dartpad}
 /// This code defines a widget that uses [AnimatedSlide] to translate a [FlutterLogo]
-/// up or down by the amount of it's height with each press of the corresponding button.
+/// up or down and right or left by dragging the X and Y axis sliders.
 ///
 /// ** See code in examples/api/lib/widgets/implicit_animations/animated_slide.0.dart **
 /// {@end-tool}
